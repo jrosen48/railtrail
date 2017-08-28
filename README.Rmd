@@ -18,7 +18,7 @@ This R data package provides rail information  about [rail trails](https://en.wi
 
 ## Installation
 
-You can install railtrails from github with:
+You can install railtrails from GitHub with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
@@ -35,8 +35,9 @@ railtrails::railtrails
 
 You may want to "unnest" the last column with reviews, as follows:
 
-```{r}
+```{r, unnesting}
 library(tidyr)
+railtrails <- railtrails::railtrails
 railtrails <- railtrails %>% unnest(raw_reviews)
 railtrails
 ```
