@@ -17,7 +17,7 @@ state_names_df <- mutate(state_names_df, state = as.character(state))
 
 railtrails <- left_join(railtrails, state_names_df, by = "state")
 
-railtrails <- select(railtrails, state_name, everything(), -state)
+railtrails <- select(railtrails, state = state_name, everything(), -state)
 
 railtrails <- mutate(railtrails,
                      name = str_sub(name, end = -7L),
