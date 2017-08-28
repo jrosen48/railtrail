@@ -9,11 +9,12 @@
 #' \item{distance}{distance (miles)}
 #' \item{surface}{surface material}
 #' \item{category}{trail category}
-#' \item{mean_review{mean review rating}
+#' \item{mean review rating}
 #' \item{description}{text description of trail}
 #' \item{n_reviews}{number of reviews}
 #' \item{raw_reviews}{list-column with a vector of reviews}
 #' }
+#' @importFrom tibble tibble
 #' @examples
 #' railtrails
 #'

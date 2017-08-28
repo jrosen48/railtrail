@@ -25,15 +25,18 @@ You can install railtrails from GitHub with:
 devtools::install_github("jrosen48/railtrail")
 ```
 
-## Loading the rail-trails data
+## Loading the data
 
 Here is how to load the data:
 
 ```{r example}
-railtrails::railtrails
+railtrails <- railtrails::railtrails
+railtrails
 ```
 
-You may want to "unnest" the last column with reviews, as follows:
+## "Unnesting"" trail reviews
+
+You may want to "unnest" the list-column with reviews in the following way:
 
 ```{r, unnesting}
 library(tidyr)

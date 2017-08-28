@@ -4,7 +4,17 @@
 \name{railtrails}
 \alias{railtrails}
 \title{Rail-trail trail data}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 11420 rows and 8 columns.}
+\format{Data frame with columns
+\describe{
+\item{name}{Name of rail-trail}
+\item{distance}{distance (miles)}
+\item{surface}{surface material}
+\item{category}{trail category}
+\item{mean review rating}
+\item{description}{text description of trail}
+\item{n_reviews}{number of reviews}
+\item{raw_reviews}{list-column with a vector of reviews}
+}}
 \source{
 https://www.traillink.com/
 }
