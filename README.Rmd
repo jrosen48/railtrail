@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# railtrails
+
+This R data package provides rail information  about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. 
+
+## Installation
+
+You can install railtrails from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("jrosen48/railtrail")
+```
+
+## Loading the rail-trails data
+
+Here is how to load the data:
+
+```{r example}
+railtrails::railtrails
+```
+
+You may want to "unnest" the last column with reviews, as follows:
+
+```{r}
+library(tidyr)
+railtrails <- railtrails %>% unnest(raw_reviews)
+railtrails
+```
+
+## Note
+
+I checked whether they had a way to access the reviews on the site through an API. They didn't, so I checked their `robots.txt` file at `http://traillink.com/robots.txt`. They didn't disallow access to their trail pages or the pages listing trails for each state. Additionally, I checked their terms of service, which did not prohibit accessing their data in this way, and so I proceeded to scrape this data using a reasonable delay in between page requests in order to not over-burden their server.
