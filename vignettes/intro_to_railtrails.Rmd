@@ -47,3 +47,9 @@ railtrails
 If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via https://www.traillink.com/.
 
 Note that these data were last updated 2017-08-14 and so new trails and particularly reviews have likely been added since then. The `R` files at [here](https://github.com/jrosen48/railtrails/tree/master/data-raw) can be used to create updated data. Pending the same permissions as indicated by the `robots.txt` file and terms of service for use of the TrailLink website, I will plan to update this package bi-yearly (so look for an update around 2018-02-18). 
+
+Thank you to [Bob Rudis](https://rud.is/) for feedback on an earlier version of this package.
+
+## Future improvements
+
+I am interested in adding the trailhead location to the data; this can be done fairly easily using the Google Maps API but will take considerable time due to the number of trails. Contributions are welcome. Requests for features can be made on GitHub.
