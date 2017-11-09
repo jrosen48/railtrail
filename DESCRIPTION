@@ -1,14 +1,19 @@
 Package: railtrails
-Title: Trail data from the Rails-to-Trails Conservancy
+Title: Rail trail data from the Rails-to-Trails Conservancy
 Version: 0.0.1
 Authors@R: person("Joshua", "Rosenberg", email = "jmichaelrosenberg@gmail.com", role = c("aut", "cre"))
-Description: R data package with trail data from the Rails-to-Trails Conservancy.
+Description: Rail trail data from the excellent TrailLink website, sponsored by the 
+    Rails-to-Trails Conservancy. Includes information (such as name, length, surface,
+    and reviews) about more than 11,000 trails in every state in the United States.
 Depends: R (>= 3.4.1)
 License: CC0
 Encoding: UTF-8
 LazyData: true
 Imports: tibble
-Suggests: tidyr
+Suggests: tidyr,
+    knitr,
+    rmarkdown
 URL: https://github.com/jrosen48/railtrail
 BugReports: https://github.com/jrosen48/railtrail/issues
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr

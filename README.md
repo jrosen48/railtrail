@@ -12,7 +12,7 @@ You can install railtrails from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("jrosen48/railtrail")
+devtools::install_github("jrosen48/railtrails")
 ```
 
 Loading the data
@@ -41,8 +41,8 @@ railtrails
 #> #   raw_reviews <list>
 ```
 
-"Unnesting"" trail reviews
---------------------------
+"Unnesting" trail reviews
+-------------------------
 
 You may want to "unnest" the list-column with reviews in the following way:
 
@@ -71,4 +71,4 @@ railtrails
 Note
 ----
 
-I checked whether they had a way to access the reviews on the site through an API. They didn't, so I checked their `robots.txt` file at `http://traillink.com/robots.txt`. They didn't disallow access to their trail pages or the pages listing trails for each state. Additionally, I checked their terms of service, which did not prohibit accessing their data in this way, and so I proceeded to scrape this data using a reasonable delay in between page requests in order to not over-burden their server.
+If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <https://www.traillink.com/>.

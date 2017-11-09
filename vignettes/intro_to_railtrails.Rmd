@@ -1,16 +1,13 @@
 ---
-output: github_document
+title: "Use of railtrails"
+author: "Joshua Rosenberg"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "README-"
-)
-```
 
 # railtrails
 
@@ -22,7 +19,7 @@ You can install railtrails from GitHub with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("jrosen48/railtrails")
+devtools::install_github("jrosen48/railtrail")
 ```
 
 ## Loading the data
@@ -48,3 +45,5 @@ railtrails
 ## Note
 
 If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via https://www.traillink.com/.
+
+Note that these data were last updated 2017-08-14 and so new trails and particularly reviews have likely been added since then. The `R` files at [here](https://github.com/jrosen48/railtrails/tree/master/data-raw) can be used to create updated data. Pending the same permissions as indicated by the `robots.txt` file and terms of service for use of the TrailLink website, I will plan to update this package bi-yearly (so look for an update around 2018-02-18). 
