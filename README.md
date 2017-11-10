@@ -8,11 +8,10 @@ This R data package provides rail information about [rail trails](https://en.wik
 Installation
 ------------
 
-You can install railtrails from GitHub with:
+You can install railtrails with the `install.packages()` function.
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("jrosen48/railtrails")
+install.packages("railtrails")
 ```
 
 Loading the data
