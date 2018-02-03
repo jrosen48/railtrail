@@ -41,9 +41,9 @@ d <- d %>% unnest(raw_reviews)
 d
 ```
 
-## Processing category and surface
+## Processing category and surface (not run)
 
-```{r}
+```{r, eval = F}
 library(dplyr)
 library(forcats)
 library(stringr)
