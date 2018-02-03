@@ -39,14 +39,16 @@ You may want to "unnest" the list-column with reviews in the following way:
 
 ```{r, unnesting}
 library(tidyr)
-railtrails <- railtrails::railtrails
-railtrails <- railtrails %>% unnest(raw_reviews)
-railtrails
+d <- railtrails::railtrails
+d <- d %>% unnest(raw_reviews)
+d
 ```
 
-## Note
+## Notes
 
 If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via https://www.traillink.com/.
+
+The data was last updated 2018/2/2.
 
 ## Future improvements
 

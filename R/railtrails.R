@@ -25,5 +25,5 @@
 "railtrails"
 
 .onAttach <- function(libname, pkgname) {
-    packageStartupMessage("If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via https://www.traillink.com/")
+  packageStartupMessage("If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via https://www.traillink.com/")
 }
