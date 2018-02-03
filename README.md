@@ -1,5 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Travis build status](https://travis-ci.org/jrosen48/railtrail.svg?branch=master)](https://travis-ci.org/jrosen48/railtrail)
+
 railtrails
 ==========
 
@@ -20,13 +22,13 @@ Loading the data
 Here is how to load the data:
 
 ``` r
-railtrails <- railtrails::railtrails
-railtrails
-#> # A tibble: 11,420 x 9
+d <- railtrails::railtrails
+d
+#> # A tibble: 11,638 x 9
 #>    state name  distance surface category mean_review description n_reviews
 #>    <chr> <chr>    <dbl> <chr>   <chr>          <int> <chr>       <chr>    
 #>  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews
-#>  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 4 Reviews
+#>  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
 #>  3 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
 #>  4 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews
 #>  5 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews
@@ -35,7 +37,7 @@ railtrails
 #>  8 AK    Lani…     3.90 Asphal… Greenwa…           3 "The Lanie… 1 Reviews
 #>  9 AK    Palm…     6.10 Gravel  Rail-Tr…           0 "As its na… 0 Reviews
 #> 10 AK    Ship…     2.60 Asphalt Rail-Tr…           4 " \r\nShip… 1 Reviews
-#> # ... with 11,410 more rows, and 1 more variable: raw_reviews <list>
+#> # ... with 11,628 more rows, and 1 more variable: raw_reviews <list>
 ```
 
 "Unnesting" trail reviews
@@ -48,20 +50,20 @@ library(tidyr)
 d <- railtrails::railtrails
 d <- d %>% unnest(raw_reviews)
 d
-#> # A tibble: 73,059 x 9
+#> # A tibble: 75,916 x 9
 #>    state name  distance surface category mean_review description n_reviews
 #>    <chr> <chr>    <dbl> <chr>   <chr>          <int> <chr>       <chr>    
 #>  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews
-#>  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 4 Reviews
-#>  3 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 4 Reviews
-#>  4 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 4 Reviews
-#>  5 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 4 Reviews
-#>  6 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
+#>  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+#>  3 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+#>  4 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+#>  5 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+#>  6 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
 #>  7 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
 #>  8 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
-#>  9 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews
+#>  9 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
 #> 10 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews
-#> # ... with 73,049 more rows, and 1 more variable: raw_reviews <int>
+#> # ... with 75,906 more rows, and 1 more variable: raw_reviews <int>
 ```
 
 Notes
@@ -80,3 +82,8 @@ Acknowledgment
 --------------
 
 Thank you to [Bob Rudis](https://rud.is/) for feedback that helped to improve this package.
+
+Code of conduct
+---------------
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.

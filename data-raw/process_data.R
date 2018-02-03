@@ -33,7 +33,7 @@ collapse_integers <- function(x) {
   paste(x, collapse = "")
 }
 
-str_extract_all(d$n_reviews, "[:digit:]") %>%
+d$n_reviews <- str_extract_all(d$n_reviews, "[:digit:]") %>%
   map_chr(collapse_integers) %>%
   as.integer() %>%
   sum()

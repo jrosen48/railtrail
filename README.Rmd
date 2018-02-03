@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Travis build status](https://travis-ci.org/jrosen48/railtrail.svg?branch=master)](https://travis-ci.org/jrosen48/railtrail)
+
 # railtrails
 
 This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. 
@@ -29,8 +31,8 @@ install.packages("railtrails")
 Here is how to load the data:
 
 ```{r example}
-railtrails <- railtrails::railtrails
-railtrails
+d <- railtrails::railtrails
+d
 ```
 
 ## "Unnesting" trail reviews
@@ -57,3 +59,8 @@ I am interested in adding the trailhead location to the data; this can be done f
 ## Acknowledgment
 
 Thank you to [Bob Rudis](https://rud.is/) for feedback that helped to improve this package.
+
+## Code of conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+  

@@ -37,13 +37,17 @@ You may want to "unnest" the list-column with reviews in the following way:
 ```{r, unnesting}
 library(tidyr)
 d <- railtrails::railtrails
-d< - d%>% unnest(raw_reviews)
+d <- d %>% unnest(raw_reviews)
 d
 ```
 
 ## Processing category and surface
 
-```{}
+```{r}
+library(dplyr)
+library(forcats)
+library(stringr)
+
 d <- d %>% 
     mutate(category = as.factor(category),
            category = fct_recode(category, "Greenway/Non-RT" = "Canal"),
@@ -62,11 +66,12 @@ d <- mutate(d,
              )
 )
 
-df$surface_rc <- as.factor(d$surface_rc)
+d$surface_rc <- as.factor(d$surface_rc)
 
 d$surface_rc <- fct_relevel(d$surface_rc,
                              "Crushed Stone")
-                        
+
+d
 ```
 
 ## Note

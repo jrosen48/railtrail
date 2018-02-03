@@ -15,8 +15,11 @@ Depends:
 Imports: 
     tibble
 Suggests: 
+    dplyr,
+    forcats,
     knitr,
     rmarkdown,
+    stringr,
     tidyr
 VignetteBuilder: knitr
 Encoding: UTF-8
