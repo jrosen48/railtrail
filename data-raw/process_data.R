@@ -24,4 +24,13 @@ railtrails <- mutate(railtrails,
                      distance = str_sub(distance, end = -7L),
                      distance = as.numeric(distance))
 
+
+collapse_integers <- function(x) {
+    paste(x, collapse = "")
+}
+
+str_extract_all(d$n_reviews, "[:digit:]") %>%
+    map_chr(collapse_integers) %>%
+    as.integer() %>% sum()
+
 devtools::use_data(railtrails, overwrite = T)
