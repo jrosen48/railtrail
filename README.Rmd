@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # railtrails
 
-This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. 
+This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. Includes information (such as name, length, surface, and reviews) 3,846 trails and 24,413 reviews in every state in the United States.
 
 ## Installation
 
