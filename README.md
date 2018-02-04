@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis build status](https://travis-ci.org/jrosen48/railtrail.svg?branch=master)](https://travis-ci.org/jrosen48/railtrail)
+[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails) [![CRAN status](http://www.r-pkg.org/badges/version/railtrails)](https://cran.r-project.org/package=railtrails)
 
 railtrails
 ==========
@@ -68,6 +68,8 @@ d
 
 Notes
 -----
+
+See more information about the variables with `?railtrails`.
 
 If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <https://www.traillink.com/>.
 

@@ -9,6 +9,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+[![CRAN status](http://www.r-pkg.org/badges/version/railtrails)](https://cran.r-project.org/package=railtrails)
+
 # railtrails
 
 This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. 
@@ -29,6 +31,10 @@ Here is how to load the data:
 railtrails <- railtrails::railtrails
 railtrails
 ```
+
+The latitude and longitude are for the trailhead and are from Google Maps searches of the trail's name (and trail's state). Around 94% of the trails are associated with latitude and longitude information.
+
+See more information about the variables with `?railtrails`.
 
 ## "Unnesting" trail reviews
 

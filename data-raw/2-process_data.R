@@ -38,4 +38,6 @@ d$n_reviews <- str_extract_all(d$n_reviews, "[:digit:]") %>%
   as.integer() %>%
   sum()
 
+railtrails <- d %>% distinct(state, name, .keep_all = TRUE)
+
 devtools::use_data(railtrails, overwrite = T)

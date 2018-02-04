@@ -64,7 +64,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jrosen48/railtrail">
+  <a href="https://github.com/jrosen48/railtrails">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -108,21 +108,21 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>railtrails</span></div><div class='output co'>#&gt; # A tibble: 11,420 x 9
-#&gt;    state                                name distance       surface
-#&gt;    &lt;chr&gt;                               &lt;chr&gt;    &lt;dbl&gt;         &lt;chr&gt;
-#&gt;  1    AK                         Chase Trail     14.0  Dirt, Gravel
-#&gt;  2    AK          Tony Knowles Coastal Trail     11.0       Asphalt
-#&gt;  3    AK                Bird to Gird Pathway     13.0       Asphalt
-#&gt;  4    AK            Campbell Creek Greenbelt      7.5 Asphalt, Dirt
-#&gt;  5    AK                         Chase Trail     14.0  Dirt, Gravel
-#&gt;  6    AK              Goose Lake Park Trails      1.5 Asphalt, Dirt
-#&gt;  7    AK                    Homer Spit Trail      4.0       Asphalt
-#&gt;  8    AK Lanie Fleischer Chester Creek Trail      3.9 Asphalt, Dirt
-#&gt;  9    AK   Palmer-Moose Creek Railroad Trail      6.1        Gravel
-#&gt; 10    AK                    Ship Creek Trail      2.6       Asphalt
-#&gt; # ... with 11,410 more rows, and 5 more variables: category &lt;chr&gt;,
-#&gt; #   mean_review &lt;int&gt;, description &lt;chr&gt;, n_reviews &lt;chr&gt;, raw_reviews &lt;list&gt;</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>railtrails</span></div><div class='output co'>#&gt; # A tibble: 3,846 x 11
+#&gt;    state name   distance surface category mean_review description     n_reviews
+#&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;    
+#&gt;  1 AK    Chase…    14.0  Dirt, … Rail-Tr…           4 "\r\n         … 1 Reviews
+#&gt;  2 AK    Tony …    11.0  Asphalt Rail-Tr…           5 "The Tony Know… 5 Reviews
+#&gt;  3 AK    Bird …    13.0  Asphalt Rail-Tr…           5 "\r\n         … 3 Reviews
+#&gt;  4 AK    Campb…     7.50 Asphal… Greenwa…           5 "\r\n         … 3 Reviews
+#&gt;  5 AK    Goose…     1.50 Asphal… Greenwa…           0 "\r\n         … 0 Reviews
+#&gt;  6 AK    Homer…     4.00 Asphalt Greenwa…           5 "On the southe… 1 Reviews
+#&gt;  7 AK    Lanie…     3.90 Asphal… Greenwa…           3 "The Lanie Fle… 1 Reviews
+#&gt;  8 AK    Palme…     6.10 Gravel  Rail-Tr…           0 "As its name s… 0 Reviews
+#&gt;  9 AK    Ship …     2.60 Asphalt Rail-Tr…           4 " \r\nShip Cre… 1 Reviews
+#&gt; 10 AL    Chief…    33.0  Asphalt Rail-Tr…           5 "In northeast … 77 Revie…
+#&gt; # ... with 3,836 more rows, and 3 more variables: raw_reviews &lt;list&gt;,
+#&gt; #   lat &lt;dbl&gt;, lng &lt;dbl&gt;</div><div class='input'>
 <span class='co'># to expand vector of review ratings in raw_reviews column:</span>
 <span class='fu'>library</span>(<span class='no'>tidyr</span>)
 <span class='no'>railtrails</span> <span class='kw'>&lt;-</span> <span class='no'>railtrails</span> <span class='kw'>%&gt;%</span> <span class='fu'>unnest</span>(<span class='no'>raw_reviews</span>)</div></pre>

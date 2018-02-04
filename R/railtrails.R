@@ -13,6 +13,8 @@
 #' \item{description}{text description of trail}
 #' \item{n_reviews}{number of reviews}
 #' \item{raw_reviews}{list column with a vector of reviews}
+#' \item{lat}{the latitude for the trailhead (from Google Maps search of the trail's name)}
+#' \item{lng}{the longitude for the trailhead (from Google Maps search of the trail's name)}
 #' }
 #' @importFrom tibble tibble
 #' @examples

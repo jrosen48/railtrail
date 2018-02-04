@@ -40,7 +40,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/jrosen48/railtrail">
+  <a href="https://github.com/jrosen48/railtrails">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -60,12 +60,13 @@
       <h1>Use of railtrails</h1>
                         <h4 class="author">Joshua Rosenberg</h4>
             
-            <h4 class="date">2017-11-10</h4>
+            <h4 class="date">2018-02-04</h4>
           </div>
 
     
     
 <div class="contents">
+<p><a href="https://cran.r-project.org/package=railtrails"><img src="http://www.r-pkg.org/badges/version/railtrails" alt="CRAN status"></a></p>
 <div id="railtrails" class="section level1">
 <h1 class="hasAnchor">
 <a href="#railtrails" class="anchor"></a>railtrails</h1>
@@ -82,52 +83,83 @@
 <p>Here is how to load the data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">railtrails &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
 railtrails</code></pre></div>
-<pre><code>## # A tibble: 11,420 x 9
-##    state                                name distance       surface
-##    &lt;chr&gt;                               &lt;chr&gt;    &lt;dbl&gt;         &lt;chr&gt;
-##  1    AK                         Chase Trail     14.0  Dirt, Gravel
-##  2    AK          Tony Knowles Coastal Trail     11.0       Asphalt
-##  3    AK                Bird to Gird Pathway     13.0       Asphalt
-##  4    AK            Campbell Creek Greenbelt      7.5 Asphalt, Dirt
-##  5    AK                         Chase Trail     14.0  Dirt, Gravel
-##  6    AK              Goose Lake Park Trails      1.5 Asphalt, Dirt
-##  7    AK                    Homer Spit Trail      4.0       Asphalt
-##  8    AK Lanie Fleischer Chester Creek Trail      3.9 Asphalt, Dirt
-##  9    AK   Palmer-Moose Creek Railroad Trail      6.1        Gravel
-## 10    AK                    Ship Creek Trail      2.6       Asphalt
-## # ... with 11,410 more rows, and 5 more variables: category &lt;chr&gt;,
-## #   mean_review &lt;int&gt;, description &lt;chr&gt;, n_reviews &lt;chr&gt;,
-## #   raw_reviews &lt;list&gt;</code></pre>
+<pre><code>## # A tibble: 11,638 x 9
+##    state name  distance surface category mean_review description n_reviews
+##    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;    
+##  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews
+##  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+##  3 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
+##  4 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews
+##  5 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews
+##  6 AK    Goos…     1.50 Asphal… Greenwa…           0 "\r\n     … 0 Reviews
+##  7 AK    Home…     4.00 Asphalt Greenwa…           5 "On the so… 1 Reviews
+##  8 AK    Lani…     3.90 Asphal… Greenwa…           3 "The Lanie… 1 Reviews
+##  9 AK    Palm…     6.10 Gravel  Rail-Tr…           0 "As its na… 0 Reviews
+## 10 AK    Ship…     2.60 Asphalt Rail-Tr…           4 " \r\nShip… 1 Reviews
+## # ... with 11,628 more rows, and 1 more variable: raw_reviews &lt;list&gt;</code></pre>
+<p>The latitude and longitude are for the trailhead and are from Google Maps searches of the trail’s name (and trail’s state). Around 94% of the trails are associated with latitude and longitude information.</p>
+<p>See more information about the variables with <code><a href="../reference/railtrails.html">?railtrails</a></code>.</p>
 </div>
 <div id="unnesting-trail-reviews" class="section level2">
 <h2 class="hasAnchor">
 <a href="#unnesting-trail-reviews" class="anchor"></a>“Unnesting” trail reviews</h2>
 <p>You may want to “unnest” the list-column with reviews in the following way:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
-railtrails &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
-railtrails &lt;-<span class="st"> </span>railtrails <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(raw_reviews)
-railtrails</code></pre></div>
-<pre><code>## # A tibble: 73,059 x 9
-##    state                       name distance       surface        category
-##    &lt;chr&gt;                      &lt;chr&gt;    &lt;dbl&gt;         &lt;chr&gt;           &lt;chr&gt;
-##  1    AK                Chase Trail     14.0  Dirt, Gravel      Rail-Trail
-##  2    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail
-##  3    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail
-##  4    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail
-##  5    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail
-##  6    AK       Bird to Gird Pathway     13.0       Asphalt      Rail-Trail
-##  7    AK       Bird to Gird Pathway     13.0       Asphalt      Rail-Trail
-##  8    AK       Bird to Gird Pathway     13.0       Asphalt      Rail-Trail
-##  9    AK   Campbell Creek Greenbelt      7.5 Asphalt, Dirt Greenway/Non-RT
-## 10    AK   Campbell Creek Greenbelt      7.5 Asphalt, Dirt Greenway/Non-RT
-## # ... with 73,049 more rows, and 4 more variables: mean_review &lt;int&gt;,
-## #   description &lt;chr&gt;, n_reviews &lt;chr&gt;, raw_reviews &lt;int&gt;</code></pre>
+d &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
+d &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(raw_reviews)
+d</code></pre></div>
+<pre><code>## # A tibble: 75,916 x 9
+##    state name  distance surface category mean_review description n_reviews
+##    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;    
+##  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews
+##  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+##  3 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+##  4 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+##  5 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+##  6 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews
+##  7 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
+##  8 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
+##  9 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews
+## 10 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews
+## # ... with 75,906 more rows, and 1 more variable: raw_reviews &lt;int&gt;</code></pre>
+</div>
+<div id="processing-category-and-surface-not-run" class="section level2">
+<h2 class="hasAnchor">
+<a href="#processing-category-and-surface-not-run" class="anchor"></a>Processing category and surface (not run)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(forcats)
+<span class="kw">library</span>(stringr)
+
+d &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">category =</span> <span class="kw">as.factor</span>(category),
+           <span class="dt">category =</span> <span class="kw">fct_recode</span>(category, <span class="st">"Greenway/Non-RT"</span> =<span class="st"> "Canal"</span>),
+           <span class="dt">mean_review =</span> <span class="kw">ifelse</span>(mean_review <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="ot">NA</span>, mean_review))
+
+d &lt;-<span class="st"> </span><span class="kw">mutate</span>(d,
+             <span class="dt">surface_rc =</span> <span class="kw">case_when</span>(
+                 surface <span class="op">==</span><span class="st"> "Asphalt"</span> <span class="op">~</span><span class="st"> "Paved"</span>,
+                 surface <span class="op">==</span><span class="st"> "Asphalt, Concrete"</span> <span class="op">~</span><span class="st"> "Paved"</span>,
+                 surface <span class="op">==</span><span class="st"> "Concrete"</span> <span class="op">~</span><span class="st"> "Paved"</span>,
+                 surface <span class="op">==</span><span class="st"> "Asphalt, Boardwalk"</span> <span class="op">~</span><span class="st"> "Paved"</span>,
+                 <span class="kw">str_detect</span>(surface, <span class="st">"Stone"</span>) <span class="op">~</span><span class="st"> "Crushed Stone"</span>,
+                 <span class="kw">str_detect</span>(surface, <span class="st">"Ballast"</span>) <span class="op">~</span><span class="st"> "Crushed Stone"</span>,
+                 <span class="kw">str_detect</span>(surface, <span class="st">"Gravel"</span>) <span class="op">~</span><span class="st"> "Crushed Stone"</span>,
+                 <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> "Other"</span>
+             )
+)
+
+d<span class="op">$</span>surface_rc &lt;-<span class="st"> </span><span class="kw">as.factor</span>(d<span class="op">$</span>surface_rc)
+
+d<span class="op">$</span>surface_rc &lt;-<span class="st"> </span><span class="kw">fct_relevel</span>(d<span class="op">$</span>surface_rc,
+                             <span class="st">"Crushed Stone"</span>)
+
+d</code></pre></div>
 </div>
 <div id="note" class="section level2">
 <h2 class="hasAnchor">
 <a href="#note" class="anchor"></a>Note</h2>
 <p>If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <a href="https://www.traillink.com/" class="uri">https://www.traillink.com/</a>.</p>
-<p>Note that these data were last updated 2017-08-14 and so new trails and particularly reviews have likely been added since then. The <code>R</code> files at <a href="https://github.com/jrosen48/railtrails/tree/master/data-raw">here</a> can be used to create updated data. Pending the same permissions as indicated by the <code>robots.txt</code> file and terms of service for use of the TrailLink website, I will plan to update this package bi-yearly (so look for an update around 2018-02-18).</p>
+<p>Note that these data were last updated 2017-08-14 and so new trails and particularly reviews have likely been added since then. The <code>R</code> files at <a href="https://github.com/jrosen48/railtrails/tree/master/data-raw">here</a> can be used to create updated data. Pending the same permissions as indicated by the <code>robots.txt</code> file and terms of service for use of the TrailLink website, I will plan to update this package bi-yearly (this was last updated around 2018-02-2).</p>
 <p>Thank you to <a href="https://rud.is/">Bob Rudis</a> for feedback on an earlier version of this package.</p>
 </div>
 <div id="future-improvements" class="section level2">
@@ -149,6 +181,7 @@ railtrails</code></pre></div>
 <li><a href="#installation">Installation</a></li>
       <li><a href="#loading-the-data">Loading the data</a></li>
       <li><a href="#unnesting-trail-reviews">“Unnesting” trail reviews</a></li>
+      <li><a href="#processing-category-and-surface-not-run">Processing category and surface (not run)</a></li>
       <li><a href="#note">Note</a></li>
       <li><a href="#future-improvements">Future improvements</a></li>
       </ul>

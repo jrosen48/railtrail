@@ -1,17 +1,18 @@
 Package: railtrails
-Title: Rail Trail Data for Trails in the United States from the Rails-to-Trails
-Version: 0.0.2
+Title: Data for Trails in the United States from the Rails-to-Trails Conservancy
+Version: 0.0.3
 Authors@R: person("Joshua", "Rosenberg", email = "jmichaelrosenberg@gmail.com", role = c("aut", "cre"))
 Description: Rail trail data from the excellent 'TrailLink' website, sponsored by the 
     Rails-to-Trails Conservancy <https://www.traillink.com/>. Includes information 
-    (such as name, length, surface, and reviews) about nearly 11,628 trails and 
-    72,512 reviews in every state in the United States. Data can be used to better
-    understand recreational trail use in  the United States.
+    (such as name, length, surface, and reviews) 3,846 trails and 24,413 reviews in 
+    every state in the United States. Data can be used for to better understand 
+    recreational trail use in the United States and for examples / teaching, 
+    particularly those involving hierarchical or repeated measures data.
 License: CC0
 URL: https://github.com/jrosen48/railtrails
 BugReports: https://github.com/jrosen48/railtrails/issues
 Depends: 
-    R (>= 3.4.1)
+    R (>= 3.0.0)
 Imports: 
     tibble
 Suggests: 

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rail Trail Data for Trails in the United States from the Rails-to-Trails • railtrails</title>
+<title>Data for Trails in the United States from the Rails-to-Trails Conservancy • railtrails</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
@@ -40,7 +40,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/jrosen48/railtrail">
+  <a href="https://github.com/jrosen48/railtrails">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -62,68 +62,67 @@
     
 <div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
 <div id="railtrails" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#railtrails" class="anchor"></a>railtrails</h1></div>
-
+<p>This R data package provides rail information about <a href="https://en.wikipedia.org/wiki/Rail_trail">rail trails</a> from the excellent <a href="https://www.traillink.com/">TrailLink</a> website, sponsored by the Rails-to-Trails Conservancy.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install railtrails from GitHub with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"jrosen48/railtrails"</span>)</code></pre></div>
+<p>You can install railtrails with the <code>install.packages()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"railtrails"</span>)</code></pre></div>
 </div>
 <div id="loading-the-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-the-data" class="anchor"></a>Loading the data</h2>
 <p>Here is how to load the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">railtrails &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
-railtrails
-<span class="co">#&gt; # A tibble: 11,420 x 9</span>
-<span class="co">#&gt;    state                                name distance       surface</span>
-<span class="co">#&gt;    &lt;chr&gt;                               &lt;chr&gt;    &lt;dbl&gt;         &lt;chr&gt;</span>
-<span class="co">#&gt;  1    AK                         Chase Trail     14.0  Dirt, Gravel</span>
-<span class="co">#&gt;  2    AK          Tony Knowles Coastal Trail     11.0       Asphalt</span>
-<span class="co">#&gt;  3    AK                Bird to Gird Pathway     13.0       Asphalt</span>
-<span class="co">#&gt;  4    AK            Campbell Creek Greenbelt      7.5 Asphalt, Dirt</span>
-<span class="co">#&gt;  5    AK                         Chase Trail     14.0  Dirt, Gravel</span>
-<span class="co">#&gt;  6    AK              Goose Lake Park Trails      1.5 Asphalt, Dirt</span>
-<span class="co">#&gt;  7    AK                    Homer Spit Trail      4.0       Asphalt</span>
-<span class="co">#&gt;  8    AK Lanie Fleischer Chester Creek Trail      3.9 Asphalt, Dirt</span>
-<span class="co">#&gt;  9    AK   Palmer-Moose Creek Railroad Trail      6.1        Gravel</span>
-<span class="co">#&gt; 10    AK                    Ship Creek Trail      2.6       Asphalt</span>
-<span class="co">#&gt; # ... with 11,410 more rows, and 5 more variables: category &lt;chr&gt;,</span>
-<span class="co">#&gt; #   mean_review &lt;int&gt;, description &lt;chr&gt;, n_reviews &lt;chr&gt;,</span>
-<span class="co">#&gt; #   raw_reviews &lt;list&gt;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
+d
+<span class="co">#&gt; # A tibble: 11,638 x 9</span>
+<span class="co">#&gt;    state name  distance surface category mean_review description n_reviews</span>
+<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;    </span>
+<span class="co">#&gt;  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews</span>
+<span class="co">#&gt;  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
+<span class="co">#&gt;  3 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
+<span class="co">#&gt;  4 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews</span>
+<span class="co">#&gt;  5 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews</span>
+<span class="co">#&gt;  6 AK    Goos…     1.50 Asphal… Greenwa…           0 "\r\n     … 0 Reviews</span>
+<span class="co">#&gt;  7 AK    Home…     4.00 Asphalt Greenwa…           5 "On the so… 1 Reviews</span>
+<span class="co">#&gt;  8 AK    Lani…     3.90 Asphal… Greenwa…           3 "The Lanie… 1 Reviews</span>
+<span class="co">#&gt;  9 AK    Palm…     6.10 Gravel  Rail-Tr…           0 "As its na… 0 Reviews</span>
+<span class="co">#&gt; 10 AK    Ship…     2.60 Asphalt Rail-Tr…           4 " \r\nShip… 1 Reviews</span>
+<span class="co">#&gt; # ... with 11,628 more rows, and 1 more variable: raw_reviews &lt;list&gt;</span></code></pre></div>
 </div>
 <div id="unnesting-trail-reviews" class="section level2">
 <h2 class="hasAnchor">
 <a href="#unnesting-trail-reviews" class="anchor"></a>“Unnesting” trail reviews</h2>
 <p>You may want to “unnest” the list-column with reviews in the following way:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
-railtrails &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
-railtrails &lt;-<span class="st"> </span>railtrails <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(raw_reviews)
-railtrails
-<span class="co">#&gt; # A tibble: 73,059 x 9</span>
-<span class="co">#&gt;    state                       name distance       surface        category</span>
-<span class="co">#&gt;    &lt;chr&gt;                      &lt;chr&gt;    &lt;dbl&gt;         &lt;chr&gt;           &lt;chr&gt;</span>
-<span class="co">#&gt;  1    AK                Chase Trail     14.0  Dirt, Gravel      Rail-Trail</span>
-<span class="co">#&gt;  2    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  3    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  4    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  5    AK Tony Knowles Coastal Trail     11.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  6    AK       Bird to Gird Pathway     13.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  7    AK       Bird to Gird Pathway     13.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  8    AK       Bird to Gird Pathway     13.0       Asphalt      Rail-Trail</span>
-<span class="co">#&gt;  9    AK   Campbell Creek Greenbelt      7.5 Asphalt, Dirt Greenway/Non-RT</span>
-<span class="co">#&gt; 10    AK   Campbell Creek Greenbelt      7.5 Asphalt, Dirt Greenway/Non-RT</span>
-<span class="co">#&gt; # ... with 73,049 more rows, and 4 more variables: mean_review &lt;int&gt;,</span>
-<span class="co">#&gt; #   description &lt;chr&gt;, n_reviews &lt;chr&gt;, raw_reviews &lt;int&gt;</span></code></pre></div>
+d &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
+d &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(raw_reviews)
+d
+<span class="co">#&gt; # A tibble: 75,916 x 9</span>
+<span class="co">#&gt;    state name  distance surface category mean_review description n_reviews</span>
+<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;    </span>
+<span class="co">#&gt;  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews</span>
+<span class="co">#&gt;  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
+<span class="co">#&gt;  3 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
+<span class="co">#&gt;  4 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
+<span class="co">#&gt;  5 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
+<span class="co">#&gt;  6 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
+<span class="co">#&gt;  7 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
+<span class="co">#&gt;  8 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
+<span class="co">#&gt;  9 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
+<span class="co">#&gt; 10 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews</span>
+<span class="co">#&gt; # ... with 75,906 more rows, and 1 more variable: raw_reviews &lt;int&gt;</span></code></pre></div>
 </div>
-<div id="note" class="section level2">
+<div id="notes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#note" class="anchor"></a>Note</h2>
+<a href="#notes" class="anchor"></a>Notes</h2>
+<p>See more information about the variables with <code><a href="reference/railtrails.html">?railtrails</a></code>.</p>
 <p>If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <a href="https://www.traillink.com/" class="uri">https://www.traillink.com/</a>.</p>
+<p>The data was last updated 2018/2/2.</p>
 </div>
 <div id="future-improvements" class="section level2">
 <h2 class="hasAnchor">
@@ -135,6 +134,11 @@ railtrails
 <a href="#acknowledgment" class="anchor"></a>Acknowledgment</h2>
 <p>Thank you to <a href="https://rud.is/">Bob Rudis</a> for feedback that helped to improve this package.</p>
 </div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of conduct</h2>
+<p>Please note that this project is released with a <a href="CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
+</div>
 </div>
 </div>
   </div>
@@ -145,9 +149,9 @@ railtrails
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cran.r-project.org/package=railtrails">https://​cran.r-project.org/​package=railtrails</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/jrosen48/railtrail">https://​github.com/​jrosen48/​railtrail</a>
+<li>Browse source code at <br><a href="https://github.com/jrosen48/railtrails">https://​github.com/​jrosen48/​railtrails</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/jrosen48/railtrail/issues">https://​github.com/​jrosen48/​railtrail/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/jrosen48/railtrails/issues">https://​github.com/​jrosen48/​railtrails/​issues</a>
 </li>
 </ul>
 <h2>License</h2>
@@ -158,8 +162,8 @@ railtrails
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://en.wikipedia.org/wiki/Rail_trail">rail trails</a></li>
-<li><a href="https://www.traillink.com/">TrailLink</a></li>
+<li><a href="https://travis-ci.org/jrosen48/railtrails"><img src="https://travis-ci.org/jrosen48/railtrails.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://cran.r-project.org/package=railtrails"><img src="http://www.r-pkg.org/badges/version/railtrails" alt="CRAN status"></a></li>
 </ul>
 </div>
 
