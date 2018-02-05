@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails)
+[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails) [![CRAN status](http://www.r-pkg.org/badges/version/railtrails)](https://cran.r-project.org/package=railtrails)
 
 # railtrails
 
