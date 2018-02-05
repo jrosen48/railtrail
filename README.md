@@ -1,11 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails)
+[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails) [![CRAN status](http://www.r-pkg.org/badges/version/railtrails)](https://cran.r-project.org/package=railtrails)
 
 railtrails
 ==========
 
-This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. Includes information (such as name, length, surface, and reviews) on 3,846 trails and 24,413 reviews in every state in the United States.
+This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. Includes information (such as name, length, surface, and reviews) 3,846 trails in every state in the United States.
 
 Installation
 ------------
@@ -71,13 +71,21 @@ d
 Notes
 -----
 
-* See more information about the variables with `?railtrails`.
+See more information about the variables with `?railtrails`.
 
-* If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <https://www.traillink.com/>.
+If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <https://www.traillink.com/>.
 
-* The data was last updated 2018/2/2.
+The data was last updated 2018/2/2.
 
-* Thank you to [Bob Rudis](https://rud.is/) for feedback that helped to improve this package.
+Future improvements
+-------------------
+
+I am interested in adding the trailhead location to the data; this can be done fairly easily using the Google Maps API but will take considerable time due to the number of trails. Contributions are welcome. Requests for features can be made [on GitHub](https://github.com/jrosen48/railtrails/issues).
+
+Acknowledgment
+--------------
+
+Thank you to [Bob Rudis](https://rud.is/) for feedback that helped to improve this package.
 
 Code of conduct
 ---------------
