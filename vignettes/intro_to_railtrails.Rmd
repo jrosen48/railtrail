@@ -9,8 +9,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-[![CRAN status](http://www.r-pkg.org/badges/version/railtrails)](https://cran.r-project.org/package=railtrails)
-
 # railtrails
 
 This R data package provides rail information about [rail trails](https://en.wikipedia.org/wiki/Rail_trail) from the excellent [TrailLink](https://www.traillink.com/) website, sponsored by the Rails-to-Trails Conservancy. 

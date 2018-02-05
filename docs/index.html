@@ -79,20 +79,21 @@
 <p>Here is how to load the data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
 d
-<span class="co">#&gt; # A tibble: 11,638 x 9</span>
+<span class="co">#&gt; # A tibble: 3,846 x 11</span>
 <span class="co">#&gt;    state name  distance surface category mean_review description n_reviews</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;    </span>
 <span class="co">#&gt;  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews</span>
 <span class="co">#&gt;  2 AK    Tony…    11.0  Asphalt Rail-Tr…           5 "The Tony … 5 Reviews</span>
 <span class="co">#&gt;  3 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
 <span class="co">#&gt;  4 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews</span>
-<span class="co">#&gt;  5 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews</span>
-<span class="co">#&gt;  6 AK    Goos…     1.50 Asphal… Greenwa…           0 "\r\n     … 0 Reviews</span>
-<span class="co">#&gt;  7 AK    Home…     4.00 Asphalt Greenwa…           5 "On the so… 1 Reviews</span>
-<span class="co">#&gt;  8 AK    Lani…     3.90 Asphal… Greenwa…           3 "The Lanie… 1 Reviews</span>
-<span class="co">#&gt;  9 AK    Palm…     6.10 Gravel  Rail-Tr…           0 "As its na… 0 Reviews</span>
-<span class="co">#&gt; 10 AK    Ship…     2.60 Asphalt Rail-Tr…           4 " \r\nShip… 1 Reviews</span>
-<span class="co">#&gt; # ... with 11,628 more rows, and 1 more variable: raw_reviews &lt;list&gt;</span></code></pre></div>
+<span class="co">#&gt;  5 AK    Goos…     1.50 Asphal… Greenwa…           0 "\r\n     … 0 Reviews</span>
+<span class="co">#&gt;  6 AK    Home…     4.00 Asphalt Greenwa…           5 "On the so… 1 Reviews</span>
+<span class="co">#&gt;  7 AK    Lani…     3.90 Asphal… Greenwa…           3 "The Lanie… 1 Reviews</span>
+<span class="co">#&gt;  8 AK    Palm…     6.10 Gravel  Rail-Tr…           0 "As its na… 0 Reviews</span>
+<span class="co">#&gt;  9 AK    Ship…     2.60 Asphalt Rail-Tr…           4 " \r\nShip… 1 Reviews</span>
+<span class="co">#&gt; 10 AL    Chie…    33.0  Asphalt Rail-Tr…           5 "In northe… 77 Revie…</span>
+<span class="co">#&gt; # ... with 3,836 more rows, and 3 more variables: raw_reviews &lt;list&gt;,</span>
+<span class="co">#&gt; #   lat &lt;dbl&gt;, lng &lt;dbl&gt;</span></code></pre></div>
 </div>
 <div id="unnesting-trail-reviews" class="section level2">
 <h2 class="hasAnchor">
@@ -102,7 +103,7 @@ d
 d &lt;-<span class="st"> </span>railtrails<span class="op">::</span>railtrails
 d &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(raw_reviews)
 d
-<span class="co">#&gt; # A tibble: 75,916 x 9</span>
+<span class="co">#&gt; # A tibble: 24,413 x 11</span>
 <span class="co">#&gt;    state name  distance surface category mean_review description n_reviews</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;    </span>
 <span class="co">#&gt;  1 AK    Chas…    14.0  Dirt, … Rail-Tr…           4 "\r\n     … 1 Reviews</span>
@@ -115,7 +116,8 @@ d
 <span class="co">#&gt;  8 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
 <span class="co">#&gt;  9 AK    Bird…    13.0  Asphalt Rail-Tr…           5 "\r\n     … 3 Reviews</span>
 <span class="co">#&gt; 10 AK    Camp…     7.50 Asphal… Greenwa…           5 "\r\n     … 3 Reviews</span>
-<span class="co">#&gt; # ... with 75,906 more rows, and 1 more variable: raw_reviews &lt;int&gt;</span></code></pre></div>
+<span class="co">#&gt; # ... with 24,403 more rows, and 3 more variables: lat &lt;dbl&gt;, lng &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   raw_reviews &lt;int&gt;</span></code></pre></div>
 </div>
 <div id="notes" class="section level2">
 <h2 class="hasAnchor">
@@ -163,7 +165,6 @@ d
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/jrosen48/railtrails"><img src="https://travis-ci.org/jrosen48/railtrails.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://cran.r-project.org/package=railtrails"><img src="http://www.r-pkg.org/badges/version/railtrails" alt="CRAN status"></a></li>
 </ul>
 </div>
 
