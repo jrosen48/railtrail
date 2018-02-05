@@ -71,21 +71,15 @@ d
 Notes
 -----
 
-See more information about the variables with `?railtrails`.
+-   See more information about the variables with `?railtrails`
 
-If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <https://www.traillink.com/>.
+-   If you like using this package, please consider visiting or even making a donation to the Rails to Trails Conservancy at via <https://www.traillink.com/>
 
-The data was last updated 2018/2/2.
+-   The data was last updated 2018/2/2
 
-Future improvements
--------------------
+-   Contributions are welcome. Pull requests and requests for features can be made on GitHub
 
-I am interested in adding the trailhead location to the data; this can be done fairly easily using the Google Maps API but will take considerable time due to the number of trails. Contributions are welcome. Requests for features can be made [on GitHub](https://github.com/jrosen48/railtrails/issues).
-
-Acknowledgment
---------------
-
-Thank you to [Bob Rudis](https://rud.is/) for feedback that helped to improve this package.
+-   Thank you to [Bob Rudis](https://rud.is/) for feedback that helped to improve this package
 
 Code of conduct
 ---------------
