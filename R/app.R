@@ -1,45 +1,43 @@
 library(tidyverse)
 library(shiny)
 
-## Code to create the processed data (so the app loads quicker)
-# library(railtrails)
-# library(modelr)
-# library(lme4)
-#
-# d <- railtrails
-#
-# d <- unnest(d, raw_reviews)
-#
-# m1 <- lmer(raw_reviews ~ 1 + (1|name) + (1|state), data = d)
-#
-# state_ranefs <- ranef(m1) %>%
-#     pluck(2) %>%
-#     rownames_to_column("state") %>%
-#     rename(state_pred = '(Intercept)')
-#
-# trail_ranefs <- ranef(m1) %>%
-#     pluck(1) %>%
-#     rownames_to_column("name") %>%
-#     rename(trail_pred = '(Intercept)')
-#
-# d <- left_join(d, trail_ranefs)
-# d <- left_join(d, state_ranefs)
-#
-# fixef(m1)[1]
-#
-# d <- mutate(d, pred_review = fixef(m1)[1] + trail_pred + state_pred)
-#
-# mean_raw_review_df <- d %>%
-#     group_by(name) %>%
-#     filter(!is.na(raw_reviews)) %>%
-#     summarize(mean_raw_review = mean(raw_reviews))
-#
-# dd <- d %>%
-#     distinct(name, state, distance, category, surface, n_reviews, mean_raw_review, pred_review, lat, lng) %>%
-#     left_join(mean_raw_review_df) %>%
-#     mutate(URL = str_c("https://www.google.com/maps/search/?api=1&query=", lat, ",", lng))
-#
-# write_rds(dd, "processed_data.rds")
+# Code to create the processed data (so the app loads quicker)
+library(railtrails)
+library(modelr)
+library(lme4)
+
+d <- railtrails
+
+d <- unnest(d, raw_reviews)
+
+m1 <- lmer(raw_reviews ~ 1 + (1|name) + (1|state), data = d)
+
+state_ranefs <- ranef(m1) %>%
+    pluck(2) %>%
+    rownames_to_column("state") %>%
+    rename(state_pred = '(Intercept)')
+
+trail_ranefs <- ranef(m1) %>%
+    pluck(1) %>%
+    rownames_to_column("name") %>%
+    rename(trail_pred = '(Intercept)')
+
+d <- left_join(d, trail_ranefs)
+d <- left_join(d, state_ranefs)
+
+fixef(m1)[1]
+
+d <- mutate(d, pred_review = fixef(m1)[1] + trail_pred + state_pred)
+
+mean_raw_review_df <- d %>%
+    group_by(name) %>%
+    filter(!is.na(raw_reviews)) %>%
+    summarize(mean_raw_review = mean(raw_reviews))
+
+dd <- d %>%
+    distinct(name, state, distance, category, surface, n_reviews, mean_raw_review, pred_review, lat, lng) %>%
+    left_join(mean_raw_review_df) %>%
+    mutate(URL = str_c("https://www.google.com/maps/search/?api=1&query=", lat, ",", lng))
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(theme = shinythemes::shinytheme("cerulean"),
@@ -71,8 +69,6 @@ ui <- fluidPage(theme = shinythemes::shinytheme("cerulean"),
                 # )
 )
 
-dd < readr::read_rds("../processed_data.rds")
-
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
@@ -81,6 +77,9 @@ server <- function(input, output) {
             filter(state == input$state) %>%
             filter(!is.na(pred_review)) %>%
             arrange(desc(pred_review)) %>%
+            mutate(pred_review = round(pred_review, 3),
+                   mean_raw_review = round(mean_raw_review, 3),
+                   n_reviews = as.integer(stringr::str_sub(n_reviews, end = -8))) %>%
             select(State = state,
                    `Trail name` = name,
                    `Distance (mi.)` = distance,
