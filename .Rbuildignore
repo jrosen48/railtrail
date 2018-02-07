@@ -10,4 +10,5 @@
 ^CODE_OF_CONDUCT\.md$
 ^railtrails_predicted_raw_reviews.csv$
 ^test.R$
-^R/app.R*
+^shinyapp/app.R$
+^shinyapp$
