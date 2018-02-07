@@ -1,33 +1,26 @@
-library(tidyverse)
 library(shiny)
+library(dplyr)
 
-# Code to create the processed data (so the app loads quicker)
-library(railtrails)
-library(modelr)
-library(lme4)
+d <- railtrails::railtrails
 
-d <- railtrails
+d <- tidyr::unnest(d, raw_reviews)
 
-d <- unnest(d, raw_reviews)
+m1 <- lme4::lmer(raw_reviews ~ 1 + (1|name) + (1|state), data = d)
 
-m1 <- lmer(raw_reviews ~ 1 + (1|name) + (1|state), data = d)
+state_ranefs <- lme4::ranef(m1) %>%
+    purrr::pluck(2) %>%
+    tibble::rownames_to_column("state") %>%
+    dplyr::rename(state_pred = '(Intercept)')
 
-state_ranefs <- ranef(m1) %>%
-    pluck(2) %>%
-    rownames_to_column("state") %>%
-    rename(state_pred = '(Intercept)')
+trail_ranefs <- lme4::ranef(m1) %>%
+    purrr:::pluck(1) %>%
+    tibble::rownames_to_column("name") %>%
+    dplyr::rename(trail_pred = '(Intercept)')
 
-trail_ranefs <- ranef(m1) %>%
-    pluck(1) %>%
-    rownames_to_column("name") %>%
-    rename(trail_pred = '(Intercept)')
+d <- dplyr::left_join(d, trail_ranefs)
+d <- dplyr::left_join(d, state_ranefs)
 
-d <- left_join(d, trail_ranefs)
-d <- left_join(d, state_ranefs)
-
-fixef(m1)[1]
-
-d <- mutate(d, pred_review = fixef(m1)[1] + trail_pred + state_pred)
+d <- dplyr::mutate(d, pred_review = lme4::fixef(m1)[1] + trail_pred + state_pred)
 
 mean_raw_review_df <- d %>%
     group_by(name) %>%
@@ -37,7 +30,7 @@ mean_raw_review_df <- d %>%
 dd <- d %>%
     distinct(name, state, distance, category, surface, n_reviews, mean_raw_review, pred_review, lat, lng) %>%
     left_join(mean_raw_review_df) %>%
-    mutate(URL = str_c("https://www.google.com/maps/search/?api=1&query=", lat, ",", lng))
+    mutate(URL = stringr::str_c("https://www.google.com/maps/search/?api=1&query=", lat, ",", lng))
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(theme = shinythemes::shinytheme("cerulean"),
