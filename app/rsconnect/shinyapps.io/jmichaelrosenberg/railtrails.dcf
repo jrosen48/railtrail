@@ -1,0 +1,12 @@
+name: railtrails
+title: railtrails
+username:
+account: jmichaelrosenberg
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 274573
+bundleId: 1230449
+url: https://jmichaelrosenberg.shinyapps.io/railtrails/
+when: 1519070733.93419
+asMultiple: FALSE
+asStatic: FALSE
