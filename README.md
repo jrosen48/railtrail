@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails) [![CRAN status](http://www.r-pkg.org/badges/version/railtrails)](https://cran.r-project.org/package=railtrails)
+[![Travis build status](https://travis-ci.org/jrosen48/railtrails.svg?branch=master)](https://travis-ci.org/jrosen48/railtrails)
 
 railtrails
 ==========
@@ -67,6 +67,11 @@ d
 #> # ... with 24,403 more rows, and 3 more variables: lat <dbl>, lng <dbl>,
 #> #   raw_reviews <int>
 ```
+
+Shiny App
+---------
+
+An interactive web application (Shiny) for finding the top-rated trails in each state is available \[here\]. The source code is in the [app](/app) directory.
 
 Notes
 -----

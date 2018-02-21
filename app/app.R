@@ -32,7 +32,7 @@ dd <- readr::read_rds("processed_data.rds")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(theme = shinythemes::shinytheme("cerulean"),
-                titlePanel("Find the best rail-trails using Trail Link reviews"),
+                titlePanel("Find the best rail-trails in each state"),
                 p("Choose a state to view the top rail-trails based on reviews from the Trail Link website"),
                 p("If you like using this, please consider visiting or even making a donation to the Rails to Trails Conservancy at via https://www.traillink.com/"),
 
@@ -47,9 +47,9 @@ ui <- fluidPage(theme = shinythemes::shinytheme("cerulean"),
                     # Show a plot of the generated distribution
                     mainPanel(
                         dataTableOutput("df")
-                    ),
+                    )
                 ),
-                p("Note: The review is calculated from a mixed effects, or multi-level, model, that considers how many reviews there are (and how different they are), whereas raw review is the arithmetic mean of the reviews, even if there are only one or two available for the trail.")
+                p("Note: The review is a prediction from a mixed effects, or multi-level, model, that considers how many high reviews there are (and how variable they are) because using the raw reviews would lead to trails with a few very positive reviews being ranked as the best.")
 
 )
 
