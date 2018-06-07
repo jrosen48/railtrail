@@ -71,7 +71,7 @@ d
 Shiny App
 ---------
 
-An interactive web application (Shiny) for finding the top-rated trails in each state is available \[here\]. The source code is in the [app](/app) directory.
+An interactive web application (Shiny) for finding the top-rated trails in each state is available [here](https://jmichaelrosenberg.shinyapps.io/railtrails/). The source code is in the [app](/app) directory.
 
 Notes
 -----
