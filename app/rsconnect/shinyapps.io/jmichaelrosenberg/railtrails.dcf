@@ -5,8 +5,8 @@ account: jmichaelrosenberg
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 274573
-bundleId: 1230479
+bundleId: 1235374
 url: https://jmichaelrosenberg.shinyapps.io/railtrails/
-when: 1519071811.59576
+when: 1519317823.79807
 asMultiple: FALSE
 asStatic: FALSE
