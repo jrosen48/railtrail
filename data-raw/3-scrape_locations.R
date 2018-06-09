@@ -69,5 +69,7 @@ for(i in 1:nrow(d)){
 }
 
 railtrails <- d %>% dplyr::select(state:raw_reviews, lat, lng)
+railtrails <- railtrails %>% mutate(lat = ifelse(lng > 0, NA, lat), 
+                                    lng = ifelse(lng > 0, NA, lng))
 
 devtools::use_data(railtrails, overwrite = T)

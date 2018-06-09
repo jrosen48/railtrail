@@ -1,3 +1,12 @@
+# railtrails 0.1.1
+* Aaron Rosenberg, scientific developer and data manager at the National 
+Oceanographic and Atmospheric Administration's National Centers from 
+Environmental Information, successfully identified and SQUASHED ALL BUGS IN HIS 
+PATH: 
+  - Rewrote geolocation scraping function to handle multiple location returns.
+  - Forced improperly identified geolocations to NA (filtered lng > 0).
+  - Updated n_review from character string to integer values.
+
 # railtrails 0.0.3
 
 * Address issue with duplicates trails - correct number is 3,846 trails and 24,413 reviews
