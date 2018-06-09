@@ -39,5 +39,5 @@
 #   sum()
 #
 # railtrails <- d %>% distinct(state, name, .keep_all = TRUE)
-#
+# railtrails$description <- stringr::str_trim(railtrails$description)
 # devtools::use_data(railtrails, overwrite = T)

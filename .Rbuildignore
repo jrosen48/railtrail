@@ -12,3 +12,4 @@
 ^test.R$
 ^shinyapp/app.R$
 ^shinyapp$
+^app
