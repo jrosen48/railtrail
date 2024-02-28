@@ -13,7 +13,8 @@ Installation
 You can install railtrails with the `install.packages()` function.
 
 ``` r
-install.packages("railtrails")
+install.packages("remotes")
+# remotes::install_github("jrosen48/railtrails")
 ```
 
 Loading the data
